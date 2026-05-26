@@ -1,4 +1,4 @@
 const AppName=()=>{
-    return <h2>Healthy Foods Predictor</h2>
+    return <h1>Healthy Food Items</h1>
 }
 export default AppName;
