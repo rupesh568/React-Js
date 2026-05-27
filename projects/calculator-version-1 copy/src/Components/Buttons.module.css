@@ -1,0 +1,16 @@
+.buttons-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+
+}
+
+.buttons{
+    width: 90px;
+    height: 90px;
+    border-radius: 2px;
+    margin: 2px;
+    font-weight: 500;
+    font-size: 25px;
+}
