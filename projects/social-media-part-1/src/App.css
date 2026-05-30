@@ -1,0 +1,10 @@
+.app-container{
+  display: flex;
+  
+}
+.Container{
+  width: 100%;
+}
+.sidebar-height{
+  height: 700px;
+}
