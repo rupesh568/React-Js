@@ -8,7 +8,7 @@ const PostList=()=>{
     return <>
         {postList.map((val)=>(
             
-            <Post></Post>
+            <Post key={val["id"]}post={val}></Post>
             
         ))}
 

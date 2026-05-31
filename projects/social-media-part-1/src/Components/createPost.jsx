@@ -1,41 +1,102 @@
+import { useContext, useRef } from "react";
+import { PostList33 } from "../Store/Post-list-store";
+
 const CreatePost = () => {
+    const {addPost}=useContext(PostList33);
+    const userId=useRef();
+    const postTitle=useRef();
+    const postContent=useRef();
+    const reaction=useRef();
+    const tag=useRef();
+
     return (
-        <form>
+        <form className="create"
+        onSubmit={(e)=>{
+            e.preventDefault();
+            addPost(e,userId,postTitle,postContent,reaction,tag)
+        }}
+        >
+
             <div className="mb-3">
-                <label htmlFor="exampleInputEmail1" class="form-label">
-                    Email address
+                <label htmlFor="userId" class="form-label">
+                    Enter your userId
                 </label>
                 <input
-                    type="email"
+                    type="text"
                     className="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
+                    id="userId"
+                    placeholder="Your USER ID"
+                    ref={userId}
+                    
                 />
-                <div id="emailHelp" class="form-text">
-                    We'll never share your email with anyone else.
-                </div>
+                
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="title" class="form-label">
+                    Post Title
+                </label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="title"
+                    placeholder="How are you feeling today?"
+                    ref={postTitle}
+                    
+                />
+                
             </div>
             <div className="mb-3">
-                <label htmlFor="exampleInputPassword1" class="form-label">
-                    Password
+                <label htmlFor="body" class="form-label">
+                    Post Content
+                </label>
+                <textarea
+                    type="text"
+                    rows="5"
+                    className="form-control"
+                    id="body"
+                
+                    placeholder="Tell us about it!"
+                    ref={postContent}
+                    
+                />
+                
+            </div>
+
+            <div className="mb-3">
+                <label htmlFor="title" class="form-label">
+                    Number of Reaction
                 </label>
                 <input
-                    type="password"
-                    class="form-control"
-                    id="exampleInputPassword1"
+                    type="text"
+                    className="form-control"
+                    id="reaction"
+                    placeholder="How many people are reacted to this post?"
+                    ref={reaction}
+                    
                 />
+                
             </div>
-            <div className="mb-3 form-check">
-                <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                />
-                <label className="form-check-label" for="exampleCheck1">
-                    Check me out
+
+            <div className="mb-3">
+                <label htmlFor="title" class="form-label">
+                    Enter your Hashtags here
                 </label>
+                <input
+                    type="text"
+                    className="form-control"
+                    id="tags"
+                    placeholder="Please enter hashtags using space"
+                    ref={tag}
+                    
+                />
+                
             </div>
-            <button type="submit" class="btn btn-primary">
+            
+            <button type="submit" class="btn btn-primary"
+            /*onClick={()=>{
+                console.log("button is clicked");
+            }}*/>
                 Submit
             </button>
         </form>
