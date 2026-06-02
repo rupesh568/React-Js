@@ -44,7 +44,7 @@ const default_post_list=[
             body:"Hi Friends,I am going to Delhi for my vacations.Hope to enjoy a lot .Peace out",
             reaction:2,
             userId:"user-9",
-            tags:["vactaion","Mumbai","Enjoying "],
+            tags:["vactaion","Mumbai","Playing"],
 
         },
         {
