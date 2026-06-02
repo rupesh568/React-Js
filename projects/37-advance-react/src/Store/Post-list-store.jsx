@@ -20,6 +20,7 @@ const postListReducer=(currItems,action)=>{
             tags:action.payload.tags,
         }]
         
+        
     }else if(action.type=="DELETE_Item"){
         finalPostList=finalPostList.filter((val55)=>{
             return ! (val55.id===action.payload.id);
@@ -28,8 +29,10 @@ const postListReducer=(currItems,action)=>{
     }else if(action.type=="ADDInitial_Item"){
         finalPostList=action.payload.posts;
         
+        
     
     }
+    console.log(finalPostList);
     return finalPostList;
 }
 

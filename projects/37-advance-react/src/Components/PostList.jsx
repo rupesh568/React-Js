@@ -7,6 +7,9 @@ const PostList=()=>{
     let {postList,addInitialPost}=useContext(PostList33);
     let [fetching,setFetching]=useState(false);
     useEffect(()=>{
+        if(postList.length > 0) {
+        return;
+        }
         setFetching(true);
 
         const controller=new AbortController();
