@@ -13,12 +13,44 @@ const CreatePost = () => {
         <form className="create"
         onSubmit={(e)=>{
             e.preventDefault();
-            addPost(e,userId,postTitle,postContent,reaction,tag)
+
+            let userId4=userId.current.value;
+            let postTitle2=postTitle.current.value;
+            let postContent2=postContent.current.value;
+            let reaction2=reaction.current.value;
+            let tag2=tag.current.value.split(" ");
+        
+            userId.current.value="";
+            postTitle.current.value="";
+            postContent.current.value="";
+            reaction.current.value="";
+            tag.current.value="";
+
+            fetch("https://dummyjson.com/posts/add", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+            
+                    title:postTitle2,
+                    body:postContent2,
+                    reaction:reaction2,
+                    userId:userId4,
+                    tags:tag2
+           })
+           })
+           .then(res => res.json())
+           .then((data1)=>{
+            console.log("all data",data1)
+            addPost(e,data1.userId,data1.title,data1.body,data1.reaction,data1.tags)
+           })
+
+           
+            // addPost(e,userId4,postTitle2,postContent2,reaction2,tag2);
         }}
         >
 
             <div className="mb-3">
-                <label htmlFor="userId" class="form-label">
+                <label htmlFor="userId" className="form-label">
                     Enter your userId
                 </label>
                 <input
