@@ -5,11 +5,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './routes/App.jsx';
 import CreatePost from './Components/CreatePost.jsx';
 import PostList from './Components/PostList.jsx';
+import {postLoader} from "./Components/PostList.jsx";
 const router=createBrowserRouter([
   {path:"/",
     element:<App/>,
     children:[
-        {path:"/",element:<PostList/>},
+        {path:"/",element:<PostList/>,loader:postLoader},
         {path:"/create-post",element:<CreatePost/>}
     ],
   

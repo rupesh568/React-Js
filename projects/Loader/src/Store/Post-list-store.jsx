@@ -5,7 +5,7 @@ export const PostList33= createContext({
     postList:[],
     addPost:()=>{},
     deletePost:()=>{},
-    fetching:false,
+    
 });
 
 const postListReducer=(currItems,action)=>{
@@ -127,28 +127,28 @@ const PostListProvider=({children})=>{
           
     },[dispatchPostList]);
 
-    let [fetching,setFetching]=useState(false);
-    useEffect(()=>{
-        if(postList.length > 0) {
-        return;
-        }
-        setFetching(true);
+    // let [fetching,setFetching]=useState(false);
+    // useEffect(()=>{
+    //     if(postList.length > 0) {
+    //     return;
+    //     }
+    //     setFetching(true);
 
-        const controller=new AbortController();
-        const signal=controller.signal;
-        fetch('https://dummyjson.com/posts',{signal})
-        .then(res => res.json())
-        .then(data=> {
-            console.log(data.posts)
-            addInitialPost(data.posts);
-            setFetching(false);
+    //     const controller=new AbortController();
+    //     const signal=controller.signal;
+    //     fetch('https://dummyjson.com/posts',{signal})
+    //     .then(res => res.json())
+    //     .then(data=> {
+    //         console.log(data.posts)
+    //         addInitialPost(data.posts);
+    //         setFetching(false);
 
-        });
-        return ()=>{
-            console.log("use Effect is cleaning up..");
-            controller.abort();
-        }
-    },[]);
+    //     });
+    //     return ()=>{
+    //         console.log("use Effect is cleaning up..");
+    //         controller.abort();
+    //     }
+    // },[]);
 
     // const arr=[5,1,3,2,9];
     // const sortArr=useMemo(()=>{
@@ -156,13 +156,13 @@ const PostListProvider=({children})=>{
     // },[arr]);
     // console.log(sortArr);
 
-
+    
     return <PostList33.Provider value={{
         postList,
         addPost,
         deletePost,
         addInitialPost,
-        fetching,
+    
 
     }}>
         {children}
