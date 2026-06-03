@@ -1,8 +1,10 @@
 import { useContext, useRef } from "react";
 import { PostList33 } from "../Store/Post-list-store";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
     const {addPost}=useContext(PostList33);
+    const navigate=useNavigate();
     const userId=useRef();
     const postTitle=useRef();
     const postContent=useRef();
@@ -42,6 +44,7 @@ const CreatePost = () => {
            .then((data1)=>{
             console.log("all data",data1)
             addPost(e,data1.userId,data1.title,data1.body,data1.reaction,data1.tags)
+            navigate("/")
            })
 
            
@@ -129,7 +132,7 @@ const CreatePost = () => {
             /*onClick={()=>{
                 console.log("button is clicked");
             }}*/>
-                Submit
+                Post
             </button>
         </form>
     );
