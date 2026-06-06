@@ -32,6 +32,10 @@ const Controls = () => {
         val.current.value="";
 
     }
+    const handlerPrivacy=()=>{
+        dispatch({type:"PRIVACYTOGGLE"})
+    }
+    
     return (
         <>
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -45,6 +49,12 @@ const Controls = () => {
             onClick={handlerDecrement}
             >
                 -1
+            </button>
+
+            <button type="button" class="btn btn-danger"
+            onClick={handlerPrivacy}
+            >
+                Privacy Toggle
             </button>
             
         </div>
@@ -65,6 +75,7 @@ const Controls = () => {
             >
               SUBTRACT
             </button>
+
             
         </div>
         </>
