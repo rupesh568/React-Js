@@ -4,15 +4,20 @@ import "./App.css";
 import Display from "./Components/Display";
 import Container from "./Components/Container";
 import Controls from "./Components/Controls";
+import { useSelector } from "react-redux";
+import PrivacyMessage from "./Components/PrivacyMessage";
 
 function App() {
+    const privacy=useSelector((val)=>{
+        return val.privacy;
+    })
     return (
-        
+            
             <center className="px-4 py-5 my-5 text-center">
                 <Container>
                 <Header></Header>
                 <div className="col-lg-6 mx-auto">
-                  <Display></Display>
+                {privacy ?<PrivacyMessage/>:<Display/>} 
                   <Controls></Controls>
                 </div>
                 </Container>
